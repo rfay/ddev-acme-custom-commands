@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#ddev-generated
+
 ## Description: Copy a database from one ddev project to another
 ## Usage: copy-db source_project
 ## Example: "ddev copy-db my-typo3-site"
