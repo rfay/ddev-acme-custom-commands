@@ -1,0 +1,18 @@
+#!/bin/bash
+
+## Description: Copy a database from one ddev project to another
+## Usage: copy-db source_project
+## Example: "ddev copy-db my-typo3-site"
+
+sourceproject=$1
+ddev export-db ${sourceproject} --file=/tmp/db.sql.gz
+echo "Importing database from project ${sourceproject} ..."
+echo "Are you sure you want to overwrite the database in ${DDEV_SITENAME}? (y/n)"
+read answer
+if [ "$answer" != "y" ]; then
+    echo "Aborting database import."
+    rm -f /tmp/db.sql.gz
+    exit 1
+fi
+ddev import-db --file=/tmp/db.sql.gz
+rm -f /tmp/db.sql.gz

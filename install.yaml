@@ -1,6 +1,6 @@
 name: acme-custom-commands
 
 project_files:
-  - docker-compose.acme-custom-commands.yaml
+  - commands/host/copy-db
 
 ddev_version_constraint: '>= v1.24.3'
